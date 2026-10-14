@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>丙组：供料看图作文《参加课外活动的好处》· 电脑投屏版</title>
+  <style>
+    :root {
+      --bg-canvas: #f6f3eb;
+      --card-bg: #ffffff;
+      --card-border: #2c251e;
+      --text-main: #141210;
+      --accent-theme: #2d6a4f;
+      --accent-theme-dark: #1b4332;
+      --highlight-bg: #ffe066;
+      --highlight-outline: #d90429;
+      --branch-bg: #edf6ee;
+      --branch-border: #2d6a4f;
+      --font-scale: 1;
+    }
+
+    /* 高度近视 · 极致黑黄超高对比度 */
+    body.theme-yellow-contrast {
+      --bg-canvas: #fffde6;
+      --card-bg: #ffffff;
+      --card-border: #000000;
+      --text-main: #000000;
+      --accent-theme: #000000;
+      --accent-theme-dark: #000000;
+      --highlight-bg: #ffee00;
+      --highlight-outline: #d90429;
+      --branch-bg: #fffbc2;
+      --branch-border: #000000;
+    }
+
+    /* 高度近视 · 护眼夜视深色反转 */
+    body.theme-dark-contrast {
+      --bg-canvas: #121417;
+      --card-bg: #1c2026;
+      --card-border: #f4d06f;
+      --text-main: #f8fafc;
+      --accent-theme: #40916c;
+      --accent-theme-dark: #2d6a4f;
+      --highlight-bg: #ffb703;
+      --highlight-outline: #ffffff;
+      --branch-bg: #252e3b;
+      --branch-border: #f4d06f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 严禁滚动条，满屏全景 */
+    html, body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      font-family: "PingFang SC", "Microsoft YaHei", "Source Han Sans CN", system-ui, sans-serif;
+      font-weight: 600;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      height: clamp(48px, 6vh, 56px);
+      background: var(--accent-theme);
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 clamp(16px, 2vw, 32px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      flex-shrink: 0;
+      z-index: 20;
+    }
+
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: clamp(16px, 1.25vw, 21px);
+      font-weight: 900;
+    }
+
+    .brand-title .badge {
+      background: #ffffff;
+      color: var(--accent-theme-dark);
+      padding: 3px 12px;
+      border-radius: 30px;
+      font-size: clamp(12px, 0.9vw, 15px);
+      font-weight: 900;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: clamp(8px, 1vw, 14px);
+    }
+
+    .ctrl-btn {
+      background: #ffffff;
+      color: var(--text-main);
+      border: 2px solid #000000;
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: clamp(12px, 0.85vw, 15px);
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 3px 0 #000000;
+      transition: all 0.1s ease;
+      white-space: nowrap;
+    }
+    .ctrl-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 0 #000000;
+    }
+    .ctrl-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #000000;
+    }
+    .ctrl-btn.playing {
+      background: #e63946;
+      color: #ffffff;
+      animation: pulsePlay 1.2s infinite;
+    }
+    @keyframes pulsePlay {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
+
+    /* 主视觉区域 */
+    main.viewport-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: clamp(10px, 1.5vh, 18px) clamp(16px, 2.5vw, 36px);
+      min-height: 0;
+      box-sizing: border-box;
+      gap: clamp(10px, 1.5vh, 16px);
+    }
+
+    /* 顶部题目要求横幅 */
+    .prompt-banner {
+      background: var(--card-bg);
+      border: clamp(3px, 0.28vw, 4px) solid var(--card-border);
+      border-radius: 16px;
+      padding: clamp(10px, 1.4vh, 16px) clamp(16px, 2vw, 24px);
+      box-shadow: 0 4px 0 var(--card-border);
+      font-size: calc(clamp(17px, 1.15vw + 0.55vh, 23px) * var(--font-scale));
+      font-weight: 800;
+      line-height: 1.6;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: background-color 0.15s;
+    }
+    .prompt-banner:hover {
+      background-color: var(--branch-bg);
+    }
+    .prompt-banner.active-speech {
+      background-color: var(--highlight-bg) !important;
+      outline: 3px solid var(--highlight-outline);
+    }
+
+    /* 思维导图主画布卡片 */
+    .mindmap-card {
+      flex: 1;
+      background: var(--card-bg);
+      border: clamp(3px, 0.28vw, 4px) solid var(--card-border);
+      border-radius: 20px;
+      box-shadow: 0 6px 0 var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(10px, 1.5vh, 20px);
+      min-height: 0;
+      position: relative;
+    }
+
+    .map-svg {
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      display: block;
+    }
+
+    /* SVG 交互节点 */
+    .map-node {
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    .map-node:hover rect,
+    .map-node:hover circle {
+      stroke: var(--highlight-outline) !important;
+      stroke-width: 5px !important;
+    }
+    .map-node.active-speech rect,
+    .map-node.active-speech circle {
+      fill: var(--highlight-bg) !important;
+      stroke: var(--highlight-outline) !important;
+      stroke-width: 5.5px !important;
+    }
+
+    footer.status-bar {
+      height: clamp(24px, 3vh, 30px);
+      background: #18221c;
+      color: #c9d6ce;
+      font-size: clamp(11px, 0.75vw, 13px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 clamp(16px, 2vw, 32px);
+      flex-shrink: 0;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-title">
+      <span>🎨</span>
+      <span>丙组：供料看图作文 · 教学大屏</span>
+      <span class="badge">Google Meet 专递版</span>
+    </div>
+
+    <div class="header-controls">
+      <button class="ctrl-btn" id="btnPlayAll">
+        <span>🔊</span> 顺读题目与要点
+      </button>
+      <button class="ctrl-btn" id="btnToggleTheme" title="切换高反差近视配色">
+        <span>👁️</span> 视力配色
+      </button>
+      <button class="ctrl-btn" id="btnZoomIn" title="微增字号">A+</button>
+      <button class="ctrl-btn" id="btnZoomOut" title="微减字号">A-</button>
+      <button class="ctrl-btn" id="btnFullscreen">
+        <span>⛶</span> 全屏铺满
+      </button>
+    </div>
+  </header>
+
+  <main class="viewport-container">
+    
+    <!-- 纯净题目要求横幅 -->
+    <div class="prompt-banner" id="promptText" title="点击朗读题目要求">
+      <span>【题目要求】 根据所提供的资料，书写一段有关“<strong>参加课外活动的好处</strong>”的文字，字数<strong>不少于 40 字</strong>。</span>
+    </div>
+
+    <!-- 高清全景思维导图 -->
+    <div class="mindmap-card">
+      <svg class="map-svg" viewBox="0 0 880 480">
+        <defs>
+          <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L9,3 z" fill="var(--card-border)"/>
+          </marker>
+        </defs>
+
+        <!-- 辐射连接线 -->
+        <line x1="330" y1="180" x2="215" y2="105" stroke="var(--card-border)" stroke-width="4" marker-end="url(#arrow)"/>
+        <line x1="310" y1="260" x2="215" y2="335" stroke="var(--card-border)" stroke-width="4" marker-end="url(#arrow)"/>
+        <line x1="550" y1="180" x2="665" y2="105" stroke="var(--card-border)" stroke-width="4" marker-end="url(#arrow)"/>
+        <line x1="570" y1="260" x2="665" y2="335" stroke="var(--card-border)" stroke-width="4" marker-end="url(#arrow)"/>
+        <line x1="440" y1="330" x2="440" y2="400" stroke="var(--card-border)" stroke-width="4" marker-end="url(#arrow)"/>
+
+        <!-- 中心枢纽节点 -->
+        <g class="map-node" id="nodeCenter" data-text="参加课外活动的好处">
+          <circle cx="440" cy="240" r="92" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="5"/>
+          <text x="440" y="230" text-anchor="middle" font-size="22" font-weight="900" fill="var(--text-main)">参加课外活动</text>
+          <text x="440" y="262" text-anchor="middle" font-size="22" font-weight="900" fill="var(--text-main)">的好处</text>
+        </g>
+
+        <!-- 分支 ① -->
+        <g class="map-node" id="node1" data-text="要点一：丰富课余生活">
+          <rect x="35" y="75" width="225" height="58" rx="29" fill="var(--branch-bg)" stroke="var(--card-border)" stroke-width="4"/>
+          <text x="147" y="112" text-anchor="middle" font-size="19" font-weight="900" fill="var(--text-main)">① 丰富课余生活</text>
+        </g>
+
+        <!-- 分支 ② -->
+        <g class="map-node" id="node2" data-text="要点二：接触课外新知识">
+          <rect x="25" y="325" width="235" height="58" rx="29" fill="var(--branch-bg)" stroke="var(--card-border)" stroke-width="4"/>
+          <text x="142" y="362" text-anchor="middle" font-size="19" font-weight="900" fill="var(--text-main)">② 接触课外新知识</text>
+        </g>
+
+        <!-- 分支 ③ -->
+        <g class="map-node" id="node3" data-text="要点三：培养兴趣和特长">
+          <rect x="620" y="75" width="235" height="58" rx="29" fill="var(--branch-bg)" stroke="var(--card-border)" stroke-width="4"/>
+          <text x="737" y="112" text-anchor="middle" font-size="19" font-weight="900" fill="var(--text-main)">③ 培养兴趣和特长</text>
+        </g>
+
+        <!-- 分支 ④ -->
+        <g class="map-node" id="node4" data-text="要点四：磨砺意志更自信">
+          <rect x="620" y="325" width="235" height="58" rx="29" fill="var(--branch-bg)" stroke="var(--card-border)" stroke-width="4"/>
+          <text x="737" y="362" text-anchor="middle" font-size="19" font-weight="900" fill="var(--text-main)">④ 磨砺意志更自信</text>
+        </g>
+
+        <!-- 分支 ⑤ -->
+        <g class="map-node" id="node5" data-text="要点五：促进身心全面成长">
+          <rect x="315" y="405" width="250" height="58" rx="29" fill="var(--branch-bg)" stroke="var(--card-border)" stroke-width="4"/>
+          <text x="440" y="442" text-anchor="middle" font-size="19" font-weight="900" fill="var(--text-main)">⑤ 促进身心全面成长</text>
+        </g>
+      </svg>
+    </div>
+
+  </main>
+
+  <footer class="status-bar">
+    <span>💡 教学提示：单击任意导图节点即可发音并高亮显示</span>
+    <span>⚡ 严格全景无卷轴 · 适配 Google Meet 16:9 投屏</span>
+  </footer>
+
+  <script>
+    class DesktopMindmapPresenter {
+      constructor() {
+        this.synth = window.speechSynthesis;
+        this.isPlayingAll = false;
+        this.nodes = [
+          document.getElementById('nodeCenter'),
+          document.getElementById('node1'),
+          document.getElementById('node2'),
+          document.getElementById('node3'),
+          document.getElementById('node4'),
+          document.getElementById('node5')
+        ];
+        this.currentIndex = 0;
+      }
+
+      stop() {
+        if (this.synth) this.synth.cancel();
+        this.isPlayingAll = false;
+        this.clearHighlights();
+        const playBtn = document.getElementById('btnPlayAll');
+        playBtn.classList.remove('playing');
+        playBtn.innerHTML = '<span>🔊</span> 顺读题目与要点';
+      }
+
+      clearHighlights() {
+        document.querySelectorAll('.active-speech').forEach(el => el.classList.remove('active-speech'));
+      }
+
+      speak(element, text, onEnd = null) {
+        if (!this.synth) return;
+        this.synth.cancel();
+        this.clearHighlights();
+
+        element.classList.add('active-speech');
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = 'zh-CN';
+        utter.rate = 0.92;
+
+        const voices = this.synth.getVoices();
+        const v = voices.find(vo => vo.lang.includes('zh'));
+        if (v) utter.voice = v;
+
+        utter.onend = () => {
+          if (!this.isPlayingAll) element.classList.remove('active-speech');
+          if (onEnd) onEnd();
+        };
+        utter.onerror = () => {
+          if (!this.isPlayingAll) element.classList.remove('active-speech');
+          if (onEnd) onEnd();
+        };
+
+        this.synth.speak(utter);
+      }
+
+      playAll() {
+        this.stop();
+        this.isPlayingAll = true;
+        const playBtn = document.getElementById('btnPlayAll');
+        playBtn.classList.add('playing');
+        playBtn.innerHTML = '<span>⏹️</span> 停止朗读';
+
+        // 先读题目，再依次读5个分支
+        const promptEl = document.getElementById('promptText');
+        this.speak(promptEl, "题目要求：根据所提供的资料，书写一段有关参加课外活动的好处的文字，字数不少于40字。", () => {
+          let idx = 0;
+          const readNextNode = () => {
+            if (!this.isPlayingAll || idx >= this.nodes.length) {
+              this.stop();
+              return;
+            }
+            const currNode = this.nodes[idx];
+            idx++;
+            this.speak(currNode, currNode.getAttribute('data-text'), () => {
+              setTimeout(readNextNode, 180);
+            });
+          };
+          readNextNode();
+        });
+      }
+    }
+
+    const presenter = new DesktopMindmapPresenter();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // 题目朗读
+      const promptEl = document.getElementById('promptText');
+      promptEl.addEventListener('click', () => {
+        presenter.stop();
+        presenter.speak(promptEl, "根据所提供的资料，书写一段有关参加课外活动的好处的文字，字数不少于40字。");
+      });
+
+      // 导图节点朗读
+      presenter.nodes.forEach(node => {
+        node.addEventListener('click', () => {
+          presenter.stop();
+          presenter.speak(node, node.getAttribute('data-text'));
+        });
+      });
+
+      // 顺读全部
+      document.getElementById('btnPlayAll').addEventListener('click', () => {
+        if (presenter.isPlayingAll) presenter.stop();
+        else presenter.playAll();
+      });
+
+      // 配色切换
+      const themes = ['', 'theme-yellow-contrast', 'theme-dark-contrast'];
+      let themeIdx = 0;
+      document.getElementById('btnToggleTheme').addEventListener('click', () => {
+        themeIdx = (themeIdx + 1) % themes.length;
+        document.body.className = themes[themeIdx];
+      });
+
+      // 字号微调
+      let scale = 1.0;
+      document.getElementById('btnZoomIn').addEventListener('click', () => {
+        if (scale < 1.15) {
+          scale += 0.05;
+          document.documentElement.style.setProperty('--font-scale', scale);
+        }
+      });
+      document.getElementById('btnZoomOut').addEventListener('click', () => {
+        if (scale > 0.88) {
+          scale -= 0.05;
+          document.documentElement.style.setProperty('--font-scale', scale);
+        }
+      });
+
+      // 全屏
+      document.getElementById('btnFullscreen').addEventListener('click', () => {
+        if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(()=>{});
+        else if (document.exitFullscreen) document.exitFullscreen();
+      });
+    });
+  </script>
+</body>
+</html>

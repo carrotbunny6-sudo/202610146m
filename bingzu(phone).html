@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>丙组：供料看图作文《参加课外活动的好处》· 手机超清版</title>
+  <style>
+    :root {
+      --bg-body: #f5f8f2;
+      --card-bg: #ffffff;
+      --card-border: #1f2d22;
+      --text-main: #0a0a0a;
+      --accent: #2d6a4f;
+      --highlight: #ffe600;
+      --highlight-ring: #d90429;
+      --branch-bg: #edf5ee;
+      --font-scale: 1;
+    }
+
+    /* 黑黄极限高反差（低视力首选） */
+    body.theme-yellow-contrast {
+      --bg-body: #fffde0;
+      --card-bg: #ffffff;
+      --card-border: #000000;
+      --text-main: #000000;
+      --accent: #000000;
+      --highlight: #ffee00;
+      --highlight-ring: #d90429;
+      --branch-bg: #fffbc2;
+    }
+
+    /* 护眼深色模式 */
+    body.theme-dark-contrast {
+      --bg-body: #0d120f;
+      --card-bg: #162019;
+      --card-border: #f4d06f;
+      --text-main: #ffffff;
+      --accent: #3a86ff;
+      --highlight: #ffb703;
+      --highlight-ring: #ffffff;
+      --branch-bg: #223027;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    /* 手机单屏全景锁定 */
+    html, body {
+      width: 100%;
+      height: 100%;
+      height: 100dvh;
+      overflow: hidden;
+      background: var(--bg-body);
+      color: var(--text-main);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-weight: 600;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header.mobile-header {
+      padding-top: max(8px, env(safe-area-inset-top));
+      padding-left: 12px;
+      padding-right: 12px;
+      padding-bottom: 8px;
+      height: 52px;
+      background: var(--accent);
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      z-index: 10;
+    }
+
+    .title-area {
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .m-btn {
+      background: #ffffff;
+      color: #000000;
+      border: 2px solid #000000;
+      border-radius: 18px;
+      padding: 4px 10px;
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      box-shadow: 0 2px 0 #000000;
+      touch-action: manipulation;
+    }
+    .m-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 0 0 #000000;
+    }
+    .m-btn.active-play {
+      background: #e63946;
+      color: #ffffff;
+      animation: pulse 1s infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(0.98); }
+      to { transform: scale(1.04); }
+    }
+
+    /* 手机主内容容器：一屏全显 */
+    main.mobile-main {
+      flex: 1;
+      padding: 8px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    /* 题目要求药丸卡片 */
+    .prompt-card {
+      background: var(--card-bg);
+      border: 2.5px solid var(--card-border);
+      border-radius: 14px;
+      padding: 8px 12px;
+      font-size: calc(clamp(14px, 3.8vw, 17px) * var(--font-scale));
+      font-weight: 800;
+      line-height: 1.5;
+      box-shadow: 0 3px 0 var(--card-border);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .prompt-card.active-speech {
+      background: var(--highlight) !important;
+      outline: 2.5px solid var(--highlight-ring);
+    }
+
+    /* 竖向矢量思维导图容器 */
+    .map-wrapper {
+      flex: 1;
+      background: var(--card-bg);
+      border: 3px solid var(--card-border);
+      border-radius: 16px;
+      padding: 6px 8px;
+      box-shadow: 0 4px 0 var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 0;
+    }
+
+    .mobile-svg {
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      display: block;
+    }
+
+    .m-node {
+      cursor: pointer;
+    }
+    .m-node:active rect {
+      fill: var(--highlight) !important;
+    }
+    .m-node.active-speech rect {
+      fill: var(--highlight) !important;
+      stroke: var(--highlight-ring) !important;
+      stroke-width: 4px !important;
+    }
+
+    footer.mobile-tip {
+      height: 32px;
+      padding-bottom: max(4px, env(safe-area-inset-bottom));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="mobile-header">
+    <div class="title-area">
+      <span>🎨</span>
+      <span>丙组作文导图</span>
+    </div>
+    <div class="btn-group">
+      <button class="m-btn" id="btnAudio">
+        <span>🔊</span> 朗读
+      </button>
+      <button class="m-btn" id="btnTheme" title="切换黑黄高对比">
+        <span>👁️</span> 配色
+      </button>
+      <button class="m-btn" id="btnFontPlus" title="调大字号">A+</button>
+      <button class="m-btn" id="btnFontMinus" title="调小字号">A-</button>
+    </div>
+  </header>
+
+  <main class="mobile-main">
+    
+    <!-- 题目要求简明卡片 -->
+    <div class="prompt-card" id="mPrompt">
+      <span><strong>【题目】</strong>书写一段有关“<strong>参加课外活动的好处</strong>”的文字，不少于 <strong>40 字</strong>。</span>
+    </div>
+
+    <!-- 专为手机竖屏重构的纯净矢量思维导图 -->
+    <div class="map-wrapper">
+      <svg class="mobile-svg" viewBox="0 0 320 440">
+        
+        <!-- 纵向中轴主干连线 -->
+        <line x1="160" y1="65" x2="160" y2="390" stroke="var(--card-border)" stroke-width="3" stroke-dasharray="4,4"/>
+
+        <!-- 顶部中心枢纽 -->
+        <g class="m-node" id="mNodeCenter" data-text="参加课外活动的好处">
+          <rect x="50" y="10" width="220" height="52" rx="26" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="3.5"/>
+          <text x="160" y="42" text-anchor="middle" font-size="17" font-weight="900" fill="var(--text-main)">参加课外活动的好处</text>
+        </g>
+
+        <!-- 分支 ① -->
+        <g class="m-node" id="mNode1" data-text="要点一：丰富课余生活" transform="translate(15, 82)">
+          <rect x="0" y="0" width="290" height="48" rx="24" fill="var(--branch-bg)" stroke="var(--card-border)" stroke-width="3"/>
+          <text x="145" y="30" text-anchor="middle" font-size="16" font-weight="900" fill="var(--text-main)">① 丰富课余生活</text>
+        </g>
+
+        <!-- 分支 ② -->
+        <g class="m-node" id="mNode2" data-text="要点二：接触课外新知识" transform="translate(15, 146)">
+          <rect x="0" y="0" width="290" height="48" rx="24" fill="var(--branch-bg)" stroke="var(--card-border)" stroke-width="3"/>
+          <text x="145" y="30" text-anchor="middle" font-size="16" font-weight="900" fill="var(--text-main)">② 接触课外新知识</text>
+        </g>
+
+        <!-- 分支 ③ -->
+        <g class="m-node" id="mNode3" data-text="要点三：培养兴趣和特长" transform="translate(15, 210)">
+          <rect x="0" y="0" width="290" height="48" rx="24" fill="var(--branch-bg)" stroke="var(--card-border)" stroke-width="3"/>
+          <text x="145" y="30" text-anchor="middle" font-size="16" font-weight="900" fill="var(--text-main)">③ 培养兴趣和特长</text>
+        </g>
+
+        <!-- 分支 ④ -->
+        <g class="m-node" id="mNode4" data-text="要点四：磨砺意志更自信" transform="translate(15, 274)">
+          <rect x="0" y="0" width="290" height="48" rx="24" fill="var(--branch-bg)" stroke="var(--card-border)" stroke-width="3"/>
+          <text x="145" y="30" text-anchor="middle" font-size="16" font-weight="900" fill="var(--text-main)">④ 磨砺意志更自信</text>
+        </g>
+
+        <!-- 分支 ⑤ -->
+        <g class="m-node" id="mNode5" data-text="要点五：促进身心全面成长" transform="translate(15, 338)">
+          <rect x="0" y="0" width="290" height="48" rx="24" fill="var(--branch-bg)" stroke="var(--card-border)" stroke-width="3"/>
+          <text x="145" y="30" text-anchor="middle" font-size="16" font-weight="900" fill="var(--text-main)">⑤ 促进身心全面成长</text>
+        </g>
+      </svg>
+    </div>
+
+  </main>
+
+  <footer class="mobile-tip">
+    <span>💡 点击任意要点卡片可发音 · 单屏全览无卷轴</span>
+  </footer>
+
+  <script>
+    class MobileMindmapReader {
+      constructor() {
+        this.synth = window.speechSynthesis;
+        this.isPlaying = false;
+        this.nodes = [
+          document.getElementById('mNodeCenter'),
+          document.getElementById('mNode1'),
+          document.getElementById('mNode2'),
+          document.getElementById('mNode3'),
+          document.getElementById('mNode4'),
+          document.getElementById('mNode5')
+        ];
+
+        this.init();
+      }
+
+      init() {
+        // 题目朗读
+        const pEl = document.getElementById('mPrompt');
+        pEl.addEventListener('click', () => {
+          this.stopTTS();
+          this.speakSingle(pEl, "书写一段有关参加课外活动的好处的文字，不少于40字。");
+        });
+
+        // 节点点读
+        this.nodes.forEach(node => {
+          node.addEventListener('click', () => {
+            this.stopTTS();
+            this.speakSingle(node, node.getAttribute('data-text'));
+          });
+        });
+
+        // 顺序朗读全部
+        document.getElementById('btnAudio').addEventListener('click', () => {
+          if (this.isPlaying) this.stopTTS();
+          else this.playAllQueue();
+        });
+
+        // 配色切换
+        const themes = ['', 'theme-yellow-contrast', 'theme-dark-contrast'];
+        let tIdx = 0;
+        document.getElementById('btnTheme').addEventListener('click', () => {
+          tIdx = (tIdx + 1) % themes.length;
+          document.body.className = themes[tIdx];
+        });
+
+        // 字号增减
+        let fontScale = 1.0;
+        document.getElementById('btnFontPlus').addEventListener('click', () => {
+          if (fontScale < 1.2) {
+            fontScale += 0.05;
+            document.documentElement.style.setProperty('--font-scale', fontScale);
+          }
+        });
+        document.getElementById('btnFontMinus').addEventListener('click', () => {
+          if (fontScale > 0.85) {
+            fontScale -= 0.05;
+            document.documentElement.style.setProperty('--font-scale', fontScale);
+          }
+        });
+      }
+
+      clearHighlights() {
+        document.querySelectorAll('.active-speech').forEach(s => s.classList.remove('active-speech'));
+      }
+
+      stopTTS() {
+        if (this.synth) this.synth.cancel();
+        this.isPlaying = false;
+        this.clearHighlights();
+        const btn = document.getElementById('btnAudio');
+        btn.classList.remove('active-play');
+        btn.innerHTML = '<span>🔊</span> 朗读';
+      }
+
+      speakSingle(el, text, onEnd = null) {
+        if (!this.synth) return;
+        this.clearHighlights();
+        el.classList.add('active-speech');
+
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = 'zh-CN';
+        utter.rate = 0.92;
+
+        const voices = this.synth.getVoices();
+        const v = voices.find(vo => vo.lang.includes('zh'));
+        if (v) utter.voice = v;
+
+        utter.onend = () => {
+          if (!this.isPlaying) el.classList.remove('active-speech');
+          if (onEnd) onEnd();
+        };
+        utter.onerror = () => {
+          if (!this.isPlaying) el.classList.remove('active-speech');
+          if (onEnd) onEnd();
+        };
+
+        this.synth.speak(utter);
+      }
+
+      playAllQueue() {
+        this.isPlaying = true;
+        const btn = document.getElementById('btnAudio');
+        btn.classList.add('active-play');
+        btn.innerHTML = '<span>⏹️</span> 停止';
+
+        let idx = 0;
+        const next = () => {
+          if (!this.isPlaying || idx >= this.nodes.length) {
+            this.stopTTS();
+            return;
+          }
+          const curr = this.nodes[idx];
+          idx++;
+          this.speakSingle(curr, curr.getAttribute('data-text'), () => {
+            setTimeout(next, 160);
+          });
+        };
+        next();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      new MobileMindmapReader();
+    });
+  </script>
+</body>
+</html>
