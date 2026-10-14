@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UASA 六年级华文科 · 现代文评估篇章</title>
+  <style>
+    /* =========================================================
+       超高度近视与老花眼专用规范：全宽大字、高对比、零杂乱
+       ========================================================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      background-color: #fbf8f1; /* 柔和高反差米黄纸色，杜绝屏幕眩光 */
+      color: #121212;             /* 极深纯正墨黑，保证最高边缘清晰度 */
+      font-family: "PingFang SC", "Noto Sans CJK SC", "Source Han Sans CN", "Microsoft YaHei", sans-serif;
+      font-size: clamp(28px, 2.4vw, 38px); /* 默认特大字号，契合重度近视与老花阅读需求 */
+      line-height: 2.8;                    /* 宽松大行距，给大字拼音留足纵向空间 */
+      letter-spacing: 0.07em;              /* 舒展字距，防止繁复笔画互相粘连粘滞 */
+      font-weight: 700;                    /* 默认字体笔画加粗，提高晶状体对焦识别率 */
+    }
+
+    /* 全景全宽排版容器：边缘无局限，全屏铺展 */
+    .passage-container {
+      width: 100%;
+      padding: 4vw 6vw 12vw 6vw;
+      margin: 0 auto;
+    }
+
+    /* 篇章主标题与分隔线 */
+    h1.passage-title {
+      font-size: clamp(40px, 3.4vw, 54px);
+      font-weight: 900;
+      color: #0c0c0c;
+      margin-bottom: 1.2em;
+      padding-bottom: 0.4em;
+      border-bottom: 5px solid #1f1f1f;
+      line-height: 1.4;
+    }
+
+    .passage-divider {
+      margin: 3.5em 0;
+      border: 0;
+      border-top: 6px dashed #7a5833;
+    }
+
+    /* 段落排布 */
+    p {
+      text-indent: 2.2em;
+      margin-bottom: 1.8em;
+      text-align: justify;
+      word-break: break-word;
+    }
+
+    /* 每一个单句均为直接可点读单元（无按钮界面，触句即读） */
+    .s {
+      display: inline;
+      cursor: pointer;
+      border-radius: 8px;
+      padding: 2px 4px;
+      margin: 0 1px;
+      transition: background-color 0.15s ease, outline 0.15s ease;
+    }
+
+    .s:hover {
+      background-color: #fce8a2;
+      outline: 3px solid #df9c00;
+    }
+
+    .s.reading {
+      background-color: #ffd43f !important;
+      outline: 4px solid #b36b00 !important;
+      color: #000000 !important;
+    }
+
+    /* 拼音 (RUBY)：专为老花视力放大，不再微缩 */
+    ruby {
+      ruby-position: over;
+      display: inline-flex;
+      flex-direction: column-reverse;
+      vertical-align: bottom;
+      line-height: 1.15;
+      margin: 0 0.12em;
+      text-indent: 0;
+    }
+
+    rt {
+      font-size: 0.78em;       /* 增大至汉字的近八成大，清晰辨识四声声调 */
+      line-height: 1.25;
+      font-weight: 900;
+      color: #0b6125;          /* 高饱和度墨绿色注音，醒目易读 */
+      letter-spacing: 0.05em;
+      text-align: center;
+      display: block;
+      user-select: none;
+    }
+
+    /* 随文生字词义直注标签 */
+    .def {
+      font-size: 0.85em;
+      font-weight: 800;
+      color: #8c2500;          /* 沉稳砖红色词义标注 */
+      background-color: rgba(140, 37, 0, 0.08);
+      border-radius: 8px;
+      padding: 0 0.3em;
+      margin: 0 0.15em;
+      text-indent: 0;
+      white-space: normal;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="passage-container">
+    
+    <!-- ================= 甲组：公仪休拒鱼 ================= -->
+    <article>
+      <h1 class="passage-title">甲组：现代文篇章《公仪休拒鱼》</h1>
+
+      <p>
+        <span class="s">春秋时期，鲁国宰相公仪休刚正廉明、严于律己，是天下闻名的清官。</span>
+        <span class="s">他平生没有奢华的嗜好，唯独特别<ruby>嗜鱼<rt>shì yú</rt></ruby><span class="def">【特别喜爱吃鱼】</span>，每逢公馆膳食，餐桌上总少不了一条清蒸草鱼。</span>
+        <span class="s">鲁国的一位富商得知此事，为了谋求私利，希望在官盐运输中得到庇护，便费尽心机，特意用重金采购了一条长达三尺、浑身泛着银光的珍罕大黄鱼，亲自用上等冰锦盛装，登门送给公仪休。</span>
+      </p>
+
+      <p>
+        <span class="s">那名客商满脸堆笑地拱手说道：“久闻大人清廉自守，令人肃然起敬。”</span>
+        <span class="s">“小民今日偶得此罕见活鳞，不敢私享，特来敬献给相爷，聊表一片崇敬心意，绝无他求。”</span>
+        <span class="s">不料，公仪休连看都没看一眼，便断然摆手拒绝，态度温和而坚定。</span>
+        <span class="s">客商十分困惑，以为宰相是在做做姿态，或是嫌弃礼物微薄，便急忙解释道：“相爷不必过虑，此鱼乃小民顺路所得，绝非行贿之物，若相爷不收，岂不辜负了小民的赤诚之心？”</span>
+        <span class="s">公仪休微笑着推辞道：“正因为在下嗜鱼，所以今天决不能收下您的这条鱼。”</span>
+        <span class="s">“还请阁下速速带回，以免彼此难堪。”</span>
+        <span class="s">客商见公仪休语气决绝，自讨没趣，只得悻悻然离去。</span>
+      </p>
+
+      <p>
+        <span class="s">客商走后，公仪休的胞弟站在一旁，百思不得其解，忍不住上前埋怨道：“兄长平日最喜爱吃鱼，今日难得有人主动送来如此肥美的极品，兄长不仅分文不取，反倒拒人于千里之外，这是何苦呢？”</span>
+      </p>
+
+      <p>
+        <span class="s">公仪休语重心长地对弟弟说道：“贤弟啊，你只知其一，不知其二。”</span>
+        <span class="s">“正因为我深爱吃鱼，才决不能贪图这一时的口腹之欲。”</span>
+        <span class="s">“如今我身为鲁国宰相，朝廷按时发放丰厚的<ruby>俸禄<rt>fèng lù</rt></ruby><span class="def">【古代官员的薪水】</span>，只要我<ruby>恪尽职守<rt>kè jìn zhí shǒu</rt></ruby><span class="def">【谨慎认真地做好本职工作】</span>，天天买鱼吃也<ruby>绰绰有余<rt>chuò chuò yǒu yú</rt></ruby><span class="def">【宽裕富足，足以应付】</span>。”</span>
+        <span class="s">“可是，如果我今天为了贪吃而收下这条鱼，日后就难免要为他人<ruby>徇私枉法<rt>xùn sī wǎng fǎ</rt></ruby><span class="def">【为了私情破坏法律原则】</span>。”</span>
+      </p>
+
+      <p>
+        <span class="s">公仪休停顿片刻，神情严肃地继续说道：“一旦徇私枉法，国家的纲纪何在？”</span>
+        <span class="s">“届时我必将遭到<ruby>罢免<rt>bà miǎn</rt></ruby><span class="def">【免除官职】</span>甚至<ruby>身陷囹圄<rt>shēn xiàn líng yǔ</rt></ruby><span class="def">【被关进监牢失去自由】</span>。”</span>
+        <span class="s">“到了那个地步，我不仅连一寸俸禄都拿不到，身败名裂之下，哪怕想吃一条泥鳅，难道送鱼的人还会再送给我吗？”</span>
+        <span class="s">“相反，如果我一生清廉自守，不仅宰相之位能够长久，俸禄也能源源不断，那么我这一生想吃多少鱼，就能吃多少鱼啊！”</span>
+      </p>
+
+      <p>
+        <span class="s">弟弟听了兄长这番透彻的剖析，顿时<ruby>醍醐灌顶<rt>tí hú guàn dǐng</rt></ruby><span class="def">【受到很大启发而彻底领悟】</span>，惭愧地低下了头。</span>
+        <span class="s">鲁国百姓得知公仪休拒鱼的故事后，无不交口称赞他的远见卓识与崇高节操，朝野上下也因此<ruby>蔚然成风<rt>wèi rán chéng fēng</rt></ruby><span class="def">【良好风气盛行普及】</span>，<ruby>吏治<rt>lì zhì</rt></ruby><span class="def">【官员的管理与政风】</span>日益清明。</span>
+      </p>
+    </article>
+
+    <hr class="passage-divider">
+
+    <!-- ================= 乙组：适耕庄——稻浪渔乡之美 ================= -->
+    <article>
+      <h1 class="passage-title">乙组：现代文篇章《适耕庄——稻浪渔乡之美》</h1>
+
+      <p>
+        <span class="s">适耕庄（Sekinchan）位于<ruby>雪兰莪<rt>xuě lán é</rt></ruby>州北部，距离吉隆坡约一个半小时车程。</span>
+        <span class="s">这里早年曾是一个<ruby>默默无闻<rt>mò mò wú wén</rt></ruby><span class="def">【没有名气，不为人知】</span>的<ruby>滨海<rt>bīn hǎi</rt></ruby><span class="def">【靠近大海的沿岸地带】</span>小渔村，村民世代依靠出海捕鱼为生，生活清苦。</span>
+        <span class="s">如今，随着农业科技与<ruby>生态<rt>shēng tài</rt></ruby><span class="def">【生物与环境相互依存的自然状态】</span>旅游的<ruby>蓬勃<rt>péng bó</rt></ruby><span class="def">【繁荣旺盛、充满朝气】</span>发展，适耕庄已成功<ruby>转型<rt>zhuǎn xíng</rt></ruby><span class="def">【改变原有的产业发展形态】</span>为闻名全国的“鱼米之乡”，成为周边城市居民周末休闲度假的热门去处。</span>
+      </p>
+
+      <p>
+        <span class="s">适耕庄拥有许多迷人的自然风景与<ruby>道地<rt>dào dì</rt></ruby><span class="def">【纯正地道、具本土特色的】</span>美食。</span>
+      </p>
+
+      <p>
+        <span class="s">“<ruby>辽阔<rt>liáo kuò</rt></ruby><span class="def">【广阔无垠，望不到边】</span>稻海”随着季节<ruby>更迭<rt>gēng dié</rt></ruby><span class="def">【轮流替换改变，循环交替】</span>变幻万千。</span>
+        <span class="s">每逢播种与收割时节，放眼望去，时而泛起<ruby>碧波荡漾<rt>bì bō dàng yàng</rt></ruby><span class="def">【青绿色的波浪或稻海起伏晃动】</span>的绿意稻浪，时而铺满金灿灿的<ruby>沉甸甸<rt>chén diàn diàn</rt></ruby><span class="def">【饱满沉重、压弯枝头的景象】</span>稻穗，展现出海天相接的大自然<ruby>壮美<rt>zhuàng měi</rt></ruby><span class="def">【雄壮美丽、气势雄阔】</span>画卷。</span>
+      </p>
+
+      <p>
+        <span class="s">“米乐坊稻米展馆”展示了我国<ruby>机械化<rt>jī xiè huà</rt></ruby><span class="def">【使用机器替代传统繁重人工】</span>水稻耕作与现代<ruby>碾米<rt>niǎn mǐ</rt></ruby><span class="def">【将稻谷脱壳并加工精制成大米】</span>技术的全貌。</span>
+        <span class="s">馆内设有<ruby>科普<rt>kē pǔ</rt></ruby><span class="def">【科学知识的普及与解说】</span>走廊与微型影院，让游客亲身体会“锄禾日当午，汗滴禾下土”的农耕辛劳，深具教育意义。</span>
+      </p>
+
+      <p>
+        <span class="s">“热浪沙滩”风景<ruby>秀丽<rt>xiù lì</rt></ruby><span class="def">【清秀美丽】</span>，海风<ruby>习习<rt>xí xí</rt></ruby><span class="def">【形容微风柔和舒适地吹拂】</span>。</span>
+        <span class="s">沙滩上耸立着一棵挂满<ruby>红绸<rt>hóng chóu</rt></ruby><span class="def">【红色的丝绸布带】</span>的古老许愿树，游客常在此系上彩带祈求平安。</span>
+        <span class="s">退潮时，游客还能在<ruby>滩涂<rt>tān tú</rt></ruby><span class="def">【海边退潮时露出的泥泞浅滩】</span>上观察<ruby>跳跳鱼<rt>tiào tiào yú</rt></ruby><span class="def">【弹涂鱼，在泥滩上蹦跳的小鱼】</span>与小<ruby>招潮蟹<rt>zhāo cháo xiè</rt></ruby><span class="def">【具有一只巨大螯足的泥滩小螃蟹】</span>的有趣动态。</span>
+      </p>
+
+      <p>
+        <span class="s">“海口海鲜餐馆”是<ruby>老饕<rt>lǎo tāo</rt></ruby><span class="def">【极具品味、讲究享受美食的食客】</span>们不可错过的美食天地。</span>
+        <span class="s">店家以<ruby>生猛<rt>shēng měng</rt></ruby><span class="def">【鲜活跳动、极度新鲜的鱼虾海产】</span>海鲜烹制鲨鱼粥、咸蛋大虾及<ruby>啦啦煎<rt>lā lā jiān</rt></ruby><span class="def">【用鲜嫩蛤蜊与粉浆香煎的道地美食】</span>，鲜香扑鼻。</span>
+      </p>
+
+      <p>
+        <span class="s">适耕庄虽无大都市的<ruby>喧嚣<rt>xuān xiāo</rt></ruby><span class="def">【声音嘈杂杂乱、纷扰不安】</span>繁华，却以其独特的稻海渔乡风情、美味<ruby>佳肴<rt>jiā yáo</rt></ruby><span class="def">【美味丰盛的精美菜肴】</span>与<ruby>淳朴<rt>chún pǔ</rt></ruby><span class="def">【诚恳朴实、质朴厚道】</span>民风吸引着<ruby>络绎不绝<rt>luò yì bù jué</rt></ruby><span class="def">【来往行人络绎连绵，接连不断】</span>的旅人，是<ruby>洗涤<rt>xǐ dí</rt></ruby><span class="def">【清洗涤荡，引申为净化精神】</span>心灵的绝佳<ruby>胜地<rt>shèng dì</rt></ruby><span class="def">【著名的优美风景胜地】</span>。</span>
+      </p>
+    </article>
+
+  </main>
+
+  <!-- 纯净静默朗读交互：点击任意句子直接朗读，无界面弹窗打扰 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let activeSpan = null;
+
+      function cleanSpeechText(el) {
+        const clone = el.cloneNode(true);
+        clone.querySelectorAll('rt').forEach(r => r.remove());
+        clone.querySelectorAll('.def').forEach(d => d.remove());
+        return (clone.textContent || '')
+          .replace(/【.*?】/g, '')
+          .replace(/（.*?）/g, '')
+          .replace(/\s+/g, '')
+          .trim();
+      }
+
+      function stopSpeech() {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+        }
+        if (activeSpan) {
+          activeSpan.classList.remove('reading');
+          activeSpan = null;
+        }
+      }
+
+      document.querySelectorAll('.s').forEach(span => {
+        span.addEventListener('click', () => {
+          if (activeSpan === span) {
+            stopSpeech();
+            return;
+          }
+
+          stopSpeech();
+          activeSpan = span;
+          span.classList.add('reading');
+
+          const text = cleanSpeechText(span);
+          if (!text || !('speechSynthesis' in window)) return;
+
+          const utter = new SpeechSynthesisUtterance(text);
+          utter.lang = 'zh-CN';
+          utter.rate = 0.86; // 语速微放慢，确保听感沉稳清晰
+          utter.pitch = 1.0;
+
+          const voices = window.speechSynthesis.getVoices();
+          const preferredVoice = voices.find(v => 
+            v.lang.includes('zh') && (v.name.includes('Xiaoxiao') || v.name.includes('Yunxi') || v.name.includes('Natural') || v.name.includes('Chinese'))
+          );
+          if (preferredVoice) utter.voice = preferredVoice;
+
+          utter.onend = () => {
+            span.classList.remove('reading');
+            if (activeSpan === span) activeSpan = null;
+          };
+          utter.onerror = () => {
+            span.classList.remove('reading');
+            if (activeSpan === span) activeSpan = null;
+          };
+
+          window.speechSynthesis.speak(utter);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
